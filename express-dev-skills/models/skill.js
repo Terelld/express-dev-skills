@@ -1,7 +1,7 @@
 const skills = [
     {id: 11, skill: 'Type fast'},
-    {id: 22, todo: 'Amazing coder'},
-    {id: 33, todo: 'Javascript Expert'}
+    {id: 22, skill: 'Amazing coder'},
+    {id: 33, skill: 'Javascript Expert'}
   ];
 	
  
