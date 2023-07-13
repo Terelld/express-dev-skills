@@ -12,7 +12,7 @@ function index(req, res) {
     });
   }
 
- 
+
   
 
 

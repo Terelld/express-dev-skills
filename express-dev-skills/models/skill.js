@@ -5,11 +5,10 @@ const skills = [
   ];
 	
  
-	
-  function getAll() {
-    return skills;
-  }
-
   module.exports = {
     getAll
   };
+  function getAll() {
+    return skills;
+  };
+
