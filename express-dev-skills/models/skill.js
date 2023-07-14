@@ -6,8 +6,23 @@ const skills = [
 	
  
   module.exports = {
-    getAll
+    getAll,
+    create,
+    deleteSkill
   };
+
+  function deleteSkill(id) {
+    id = parseInt(id);
+    const idx = skills.findIndex(skill => skill.id === id);
+    skills.splice(idx, 1);
+  }
+
+
+function create(skill) {
+  skill.id = Date.now() % 100000;
+  skills.push(skill);
+}
+
   function getAll() {
     return skills;
   };
