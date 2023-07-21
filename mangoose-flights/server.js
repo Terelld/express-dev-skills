@@ -11,6 +11,9 @@ require('./config/database');
 
 const indexRouter = require('./routes/index');
 const flightsRouter = require('./routes/flights');
+const detailsRouter = require('./routes/details');
+const destinationsRouter = require('./routes/destinations');
+const ticketsRouter = require('./routes/tickets');
 
 const app = express();
 
@@ -26,6 +29,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
+app.use('/', detailsRouter);
+app.use('/', destinationsRouter);
+app.use('/tickets', ticketsRouter);
+
+
+app.get('/tickets', (req, res) => {
+  res.render('tickets/new');
+ });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

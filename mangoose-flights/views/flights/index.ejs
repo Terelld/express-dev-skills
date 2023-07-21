@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<!-- <h2>Movie List</h2>
+<h2>Flight List</h2>
 <table>
   <thead>
     <tr>
@@ -11,23 +11,14 @@
     </tr>
   </thead>
   <tbody>
-     --> 
-
-
-     <h2>Enter Flight Info</h2>
-     <form action="/flights" method="POST">
-       <label>Airline:
-         <input type="text" name="airline">
-       </label><br>
-       <label>Airport:
-         <input type="text" name="airport">
-       </label><br>
-       <label>Flight Number
-         <input type="number" name="flightNumber">
-       </label><br>
-       <label>Departure:
-         <input type="number" name="departure" >
-       </label><br>
-       <button type="submit">Add Flight</button>
-     </form>
-     <p><%= errorMsg %></p>
+    <% flights.forEach(function(f) { %>
+      <tr>
+        <td><%= f.airline %></td>
+        <td><%= f.airport %></td>
+        <td><%= f.flightNo %></td>
+        <td><%= f.departs %></td>
+        <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+      </tr>
+   <% }) %> <!-- Close the forEach using EJS here -->
+  </tbody>
+</table>

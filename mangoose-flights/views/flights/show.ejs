@@ -1,0 +1,100 @@
+
+<%- include('../partials/header') %>
+
+<h2>Flight Details</h2>
+<section id="show-page">
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.airport %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departure: </div>
+    <div><%= flight.departure %></div>
+    <div>Destination: </div>
+    <div>
+      
+        <% if (flight.destinations) { %>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Arrival Time and Date</th>
+                    <th>Airport</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% flight.destinations.forEach(function(dest) { %>
+                        <tr>
+                           
+                            <td><%= dest.arrival %></td>
+                            <td><%= dest.airport %></td>
+                          </tr>
+                        <% }); %>
+                      </tbody>
+                    </table>
+            <% } else { %>
+            <h5>No Destination Info Yet</h5>
+        <% } %>
+    </div>
+
+    <br><br><h2>Add Destination: </h2>
+    <form id="add-destination" method="Post" action="/flights/<%= flight.id %>/destinations">
+    <label for="">Arrival:</label>
+    <input type="datetime-local" name="arrival">
+    <label for="">Airport Code: </label>
+    <select name="airport">
+        <option value="JFK">JFK</option>
+        <option value="DFW">DFW</option>
+        <option value="DEN">DEN</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+    </select>
+    <input type="submit" value="Add Destination">
+    </form>
+
+    <br><br><h2>Flight Tickets </h2>
+    <li><a href="/tickets/<%=flight._id%>/new">Add Ticket: </a></li>
+
+
+
+
+
+
+  
+
+
+
+
+  </section>
+
+
+
+
+
+
+
+<section id="ticket-info">
+<% if (tickets) { %>
+    <table>
+        <thead>
+          <tr>
+            <th>Seat Number</th>
+            <th>Ticket Price</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% tickets.forEach(function(display) { %>
+                <tr>
+                    
+                    <td><%= display.seat %></td>
+                    <td><%= display.price %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+    <% } else { %>
+    <h5>No Ticket Info Yet</h5>
+<% } %>
+
+</section>
+
+

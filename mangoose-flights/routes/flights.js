@@ -4,11 +4,19 @@ var router = express.Router();
 const flightsCtrl = require('../controllers/flights');
 
 
+
+//Get rout for /flights INDEX route
+router.get('/', flightsCtrl.index);
+
 router.get('/new', flightsCtrl.new);
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+// GET /movies/:id (show functionality) MUST be below new route
+router.get('/:id', flightsCtrl.show);
+
+//POSt rout for /flights 
+router.post('/', flightsCtrl.create);
+
+
+
 
 module.exports = router;
